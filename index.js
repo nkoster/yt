@@ -15,8 +15,9 @@
       process.exit(1)
     }
 
+    const output = __dirname + '/' + vid + '.mp4'
     const info = await ytdl.getInfo(vid)
-    console.log(info.videoDetails.title)
+    console.log('download:', '"' + info.videoDetails.title + '"')
 
     console.log('video length:', info.videoDetails.lengthSeconds, 'seconds')
   
@@ -33,13 +34,13 @@
       size += Number(data)
       process.stdout.write('\rd/l ' + size + ' bytes')
     })
-    .pipe(fs.createWriteStream(__dirname + '/' + vid + '.mp4'))
+    .pipe(fs.createWriteStream(output))
     .on('error', err => {
       console.log(err.message)
       process.exit(2)
     })
     .on('finish', _ => {
-      console.log('\r' + size + ' bytes downloaded       ')
+      console.log('\r' + output + ': ' + size + ' bytes')
       process.exit(0)
     })
   
