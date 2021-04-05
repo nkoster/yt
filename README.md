@@ -10,7 +10,7 @@ chmod +x index.js
 npm link
 ```
 
-Now you can download a youtube link:
+Now you can download a youtube video like this:
 
 ```
 cd /tmp
