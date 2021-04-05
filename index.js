@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 (async _ => {
 
   if (process.argv.length > 2) {
