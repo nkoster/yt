@@ -22,9 +22,12 @@
       .replace(/['"`|]/g, '_')
       + '.mp4'
 
-    console.log('download:', '"' + info.videoDetails.title + '"')
+    console.log('Download:', '"' + info.videoDetails.title + '"')
 
-    console.log('video length:', info.videoDetails.lengthSeconds, 'seconds')
+    console.log('Video Length:',
+      (info.videoDetails.lengthSeconds / 60).toFixed(0) + '.' +
+      (info.videoDetails.lengthSeconds % 60),
+      'Minutes')
   
     let size = 0
   
@@ -37,7 +40,7 @@
     })
     .on('progress', data => {
       size += Number(data)
-      process.stdout.write('\rd/l ' + size + ' bytes')
+      process.stdout.write('\rd/l ' + size + ' Bytes')
     })
     .pipe(fs.createWriteStream(output))
     .on('error', err => {
@@ -45,7 +48,7 @@
       process.exit(2)
     })
     .on('finish', _ => {
-      console.log('\r' + output + ': ' + size + ' bytes')
+      console.log('\r' + output + ': ' + size + ' Bytes')
       process.exit(0)
     })
   
