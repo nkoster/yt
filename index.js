@@ -15,8 +15,13 @@
       process.exit(1)
     }
 
-    const output = __dirname + '/' + vid + '.mp4'
     const info = await ytdl.getInfo(vid)
+
+    const output = info.videoDetails.title
+      .replace(/ /g, '_')
+      .replace(/['"`|]/g, '_')
+      + '.mp4'
+
     console.log('download:', '"' + info.videoDetails.title + '"')
 
     console.log('video length:', info.videoDetails.lengthSeconds, 'seconds')
