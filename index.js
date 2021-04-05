@@ -24,9 +24,14 @@
 
     console.log('Download:', '"' + info.videoDetails.title + '"')
 
+    const pad = (val, size) => {
+      const s = '00' + val
+      return s.substr(s.length - size)
+    }
+
     console.log('Video Length:',
       (Math.floor(info.videoDetails.lengthSeconds / 60)).toFixed(0) + '.' +
-      (info.videoDetails.lengthSeconds % 60),
+      pad(info.videoDetails.lengthSeconds % 60, 2),
       'Minutes')
   
     let size = 0
