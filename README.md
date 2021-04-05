@@ -1,6 +1,6 @@
 Download videos from youtube, simple version.
 
-# Usage
+### Usage
 
 ```
 git clone https://github.com/nkoster/yt
