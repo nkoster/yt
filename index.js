@@ -20,13 +20,13 @@
 
     const output = info.videoDetails.title
       .replace(/ /g, '_')
-      .replace(/['"`|]/g, '_')
+      .replace(/['"`.#|/\\!?]/g, '_')
       + '.mp4'
 
     console.log('Download:', '"' + info.videoDetails.title + '"')
 
     console.log('Video Length:',
-      (info.videoDetails.lengthSeconds / 60).toFixed(0) + '.' +
+      (Math.floor(info.videoDetails.lengthSeconds / 60)).toFixed(0) + '.' +
       (info.videoDetails.lengthSeconds % 60),
       'Minutes')
   
@@ -41,7 +41,7 @@
     })
     .on('progress', data => {
       size += Number(data)
-      process.stdout.write('\rd/l ' + size + ' Bytes')
+      process.stdout.write('\rD/L ' + size + ' Bytes')
     })
     .pipe(fs.createWriteStream(output))
     .on('error', err => {
