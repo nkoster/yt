@@ -17,4 +17,4 @@ cd /tmp
 ytd https://www.youtube.com/watch?v=Ua2LDqoeFEA
 ```
 
-Files are saved with normalised names.
+Files are saved with normalised names, based on the video title.
