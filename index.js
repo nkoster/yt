@@ -19,8 +19,7 @@
     const info = await ytdl.getInfo(vid)
 
     const output = info.videoDetails.title
-      .replace(/ /g, '_')
-      .replace(/['"`.#|/\\!?]/g, '_')
+      .replace(/[ '"`.#|/\\!?]/g, '_')
       + '.mp4'
 
     console.log('Download:', '"' + info.videoDetails.title + '"')
