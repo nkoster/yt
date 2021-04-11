@@ -1,5 +1,7 @@
 Download videos from youtube, simple version.
 
+The code is depending on https://www.npmjs.com/package/ytdl
+
 ### Usage
 
 ```
